@@ -35,34 +35,30 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-async function loginUser(credentials) {
+async function loginRequest(credentials) {
     return fetch('http://192.168.1.50:8080/api/v1/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
+    }).then(data => {
+        return data.json()
     })
-        .then(data => {
-            return data.json()
-        })
 }
 
 export default function Signin() {
     const classes = useStyles();
-    const [username, setUserName] = useState();
+    const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
 
     const handleSubmit = async e => {
         e.preventDefault();
-        const response = await loginUser({
-            username,
+        const response = await loginRequest({
+            email,
             password
         });
-
-
-        console.log(response)
 
         if (response.token != null) {
             swal("Success", "Good credentials", "success", {
@@ -70,11 +66,19 @@ export default function Signin() {
                 timer: 2000,
             })
                 .then((value) => {
-                    localStorage.setItem('accessToken', response['token']);
-                    window.location.href = "/profile";
+                    localStorage.setItem('token', response['token']);
+                    localStorage.setItem('role', response['role']);
+                    localStorage.setItem('email', response['email']);
+                    localStorage.setItem('employeeCode', response['employeeCode']);
+                    if (response.role === 'EMPLOYEE') {
+                        window.location.href = "/employee-dashboard/home";
+                    } else if (response.role === 'MANAGER') {
+                        window.location.href = "/manager-dashboard/home";
+                    }
                 });
         } else {
             swal("Failed", "Wrong credentials", "error");
+
         }
     }
 
@@ -82,9 +86,9 @@ export default function Signin() {
         <>
             <div className={classes.paper}>
                 <form className={classes.form} noValidate onSubmit={handleSubmit}>
-                    <img src={require(`./logo_edm.jpg`)}
+                    <img src={require(`./EDM_LOGO.PNG`)}
                          alt={"EDM logo"}
-                         style={{width: '250px', height: '250px'}}/>
+                         style={{width: '300px', height: '250px'}}/>
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
@@ -95,7 +99,7 @@ export default function Signin() {
                         id="email"
                         name="email"
                         label="Email Address"
-                        onChange={e => setUserName(e.target.value)}
+                        onChange={e => setEmail(e.target.value)}
                     />
                     <TextField
                         variant="outlined"
