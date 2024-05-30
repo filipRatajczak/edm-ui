@@ -118,6 +118,11 @@ export default function Signin() {
                         className={classes.submit}>Sign in</Button>
                 </form>
             </div>
+
+            <div>
+                Scheduling is easy. To receive manager account for testing purposes send me email to filipratajczak1@gmail.com
+                Or enjoy with free account
+            </div>
         </>
     );
 }

@@ -90,7 +90,7 @@ const ManagerDeleteDisposition = () => {
                 timer: 2000,
             })
         } else {
-            swal("Failed", "Error", "error");
+            await swal("Failed", "Error", "error");
         }
 
     }

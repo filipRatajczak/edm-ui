@@ -5,9 +5,9 @@ import Typography from "@material-ui/core/Typography";
 // import DatePicker from "react-datepicker";
 import Button from "@material-ui/core/Button";
 import {makeStyles} from "@material-ui/core/styles";
-import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
-import { LocalizationProvider } from '@mui/x-date-pickers'
+import {DatePicker} from '@mui/x-date-pickers/DatePicker'
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns'
+import {LocalizationProvider} from '@mui/x-date-pickers'
 
 import TextField from "@material-ui/core/TextField";
 import swal from "sweetalert";
@@ -138,8 +138,6 @@ const ManagerSettings = () => {
                         Create employee
                     </Typography>
                     <TextField
-
-
                         variant="outlined"
                         margin="normal"
                         required
@@ -150,7 +148,6 @@ const ManagerSettings = () => {
                     /><br></br>
                     <Row>
                         <TextField
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -160,7 +157,6 @@ const ManagerSettings = () => {
                             onChange={e => setFirstName(e.target.value)}
                         />
                         <TextField
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -173,7 +169,6 @@ const ManagerSettings = () => {
                     <br></br>
                     <Row>
                         <TextField
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -183,7 +178,6 @@ const ManagerSettings = () => {
                             onChange={e => setAddress(e.target.value)}
                         />
                         <TextField
-
                             variant="outlined"
                             margin="normal"
                             required
@@ -195,7 +189,6 @@ const ManagerSettings = () => {
                     </Row>
                     <br></br>
                     <TextField
-
                         variant="outlined"
                         margin="normal"
                         required
@@ -208,7 +201,6 @@ const ManagerSettings = () => {
                     <br></br>
                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <DatePicker
-
                             label="Birthday"
                             onChange={handleBirthdayChange}
                         />
