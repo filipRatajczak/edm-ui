@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import EmployeeSidebar from "./ManagerSidebar";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 
 function ManagerHome() {
 

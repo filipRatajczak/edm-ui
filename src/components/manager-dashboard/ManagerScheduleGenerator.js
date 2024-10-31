@@ -1,15 +1,16 @@
 import React, {useState} from 'react';
 import ManagerSidebar from "./ManagerSidebar";
-import swal from "sweetalert";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
+import Swal from 'sweetalert2'
+import Typography from "@mui/material/Typography"
+import Button from "@mui/material/Button"
+import {makeStyles} from "@mui/styles"
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import {DotLoader} from 'react-spinners';
 import {css} from '@emotion/react';
-import TextField from "@material-ui/core/TextField";
+import TextField from "@mui/material/TextField";
 import {Autocomplete} from "@mui/lab";
+import inputsRef from "react-big-calendar/dist/react-big-calendar";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -53,7 +54,7 @@ const organizations = () => {
 }
 
 
-async function generateScheduleRequest(fromDate) {
+async function generateScheduleRequest() {
 
     const token = 'Bearer ' + localStorage.getItem('token')
 
@@ -127,14 +128,14 @@ export default function ManagerScheduleGenerator() {
                 for (let i = 0; i < data.length; i++) {
                     errorMsg = errorMsg + `\nErrors for day: ${data[i].day}\n` + data[i].errorMessage
                 }
-                swal("Success", errorMsg, "success").then(() => {
+                Swal.fire("Success", errorMsg, "success").then(() => {
                     window.location.href = "/manager-dashboard/schedule";
                 })
             })
 
         } else {
             setLoading(false)
-            await swal("Failed", "Errors", "error");
+            await Swal.fire("Failed", "Errors", "error");
         }
     }
 
@@ -177,7 +178,7 @@ export default function ManagerScheduleGenerator() {
                         dateFormat="yyyy-MM-dd"
                         isClearable
                         showYearDropdown
-                    />
+                        showMonthYearDropdown/>
                     <Autocomplete
                         disablePortal
                         id="combo-box-org"

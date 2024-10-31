@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
+import ReactDOM from "react-dom/client";
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import Signin from './components/Login';
+import SignIn from './components/Login';
 import EmployeeHome from "./components/employee-dashboard/EmployeeHome";
 import EmployeeSchedule from "./components/employee-dashboard/EmployeeSchedule";
 import ManagerHome from "./components/manager-dashboard/ManagerHome";
@@ -18,7 +19,7 @@ function App() {
         <div className="wrapper">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Signin/>}/>
+                    <Route path="/" element={<SignIn/>}/>
                     <Route path="/employee-dashboard/home" element={<EmployeeHome/>}/>
                     <Route path="/employee-dashboard/schedule" element={<EmployeeSchedule/>}/>
                     <Route path="/employee-dashboard/delete-disposition" element={<EmployeeDeleteDisposition/>}/>
@@ -33,5 +34,8 @@ function App() {
         </div>
     );
 }
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
 
 export default App;

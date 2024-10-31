@@ -1,16 +1,14 @@
 import React, {useState} from 'react';
 import ManagerSidebar from "./ManagerSidebar";
-
-import Typography from "@material-ui/core/Typography";
-// import DatePicker from "react-datepicker";
-import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import {makeStyles} from "@mui/styles";
 import {DatePicker} from '@mui/x-date-pickers/DatePicker'
-import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFns'
+import {AdapterDateFns} from '@mui/x-date-pickers/AdapterDateFnsV3'
 import {LocalizationProvider} from '@mui/x-date-pickers'
-
-import TextField from "@material-ui/core/TextField";
-import swal from "sweetalert";
+import TextField from "@mui/material/TextField";
+import Swal from "sweetalert2";
+import formRef from "react-big-calendar/dist/react-big-calendar";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,12 +91,12 @@ const ManagerSettings = () => {
         const response = await postEmployeeRequest();
 
         if (response.ok) {
-            await swal("Success", "Employee added.", "success", {
+            await Swal.fire("Success", "Employee added.", "success", {
                 buttons: false,
                 timer: 2000,
             })
         } else {
-            swal("Failed", "Error", "error");
+            Swal.fire("Failed", "Error", "error");
         }
         formRef.current.reset();
     }

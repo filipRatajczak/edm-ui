@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import {makeStyles} from '@material-ui/core/styles';
-import swal from 'sweetalert';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import {makeStyles} from '@mui/styles';
+import Swal from 'sweetalert2';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,12 +17,12 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center'
     },
     avatar: {
-        margin: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.main,
+        margin: 0,
+        backgroundColor: "black",
     },
     form: {
         width: '35%',
-        marginTop: theme.spacing(1),
+        marginTop: 0,
         justifyContent: 'center',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)', // Add a subtle box shadow for depth
         borderRadius: '8px', // Optional: Add rounded corners for a softer look
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex'
     },
     submit: {
-        margin: theme.spacing(3, 0, 2),
+        margin: 0,
     },
 }));
 
@@ -47,7 +47,7 @@ async function loginRequest(credentials) {
     })
 }
 
-export default function Signin() {
+export default function SignIn() {
     const classes = useStyles();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -61,7 +61,7 @@ export default function Signin() {
         });
 
         if (response.token != null) {
-            swal("Success", "Good credentials", "success", {
+            Swal.fire("Success", "Good credentials", "success", {
                 buttons: false,
                 timer: 2000,
             })
@@ -77,7 +77,7 @@ export default function Signin() {
                     }
                 });
         } else {
-            swal("Failed", "Wrong credentials", "error");
+            Swal.fire("Failed", "Wrong credentials", "error");
 
         }
     }

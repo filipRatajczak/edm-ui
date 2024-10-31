@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import ManagerSidebar from "./ManagerSidebar";
 
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import DatePicker from "react-datepicker";
-import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import swal from "sweetalert";
+import Button from "@mui/material/Button";
+import {makeStyles} from "@mui/styles";
+import TextField from "@mui/material/TextField";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -87,12 +87,12 @@ const ManagerTimeEntry = () => {
             const response = await postTimeEntryRequest();
 
             if (response.ok) {
-                await swal("Success", "Time entry added.", "success", {
+                await Swal.fire("Success", "Time entry added.", "success", {
                     buttons: false,
                     timer: 2000,
                 })
             } else {
-                swal("Failed", "Error", "error");
+                Swal.fire("Failed", "Error", "error");
             }
 
         }

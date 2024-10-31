@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import ManagerSidebar from "./EmployeeSidebar";
 
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import {makeStyles} from "@material-ui/core/styles";
-import swal from "sweetalert";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import {makeStyles} from "@mui/styles";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
     form: {
@@ -85,12 +85,12 @@ const EmployeeDeleteDisposition = () => {
         const response = await deleteTimeEntryRequest();
 
         if (response.ok) {
-            await swal("Success", "Disposition deleted.", "success", {
+            await Swal.fire("Success", "Disposition deleted.", "success", {
                 buttons: false,
                 timer: 2000,
             })
         } else {
-            swal("Failed", "Error", "error");
+            Swal.fire("Failed", "Error", "error");
         }
 
     }

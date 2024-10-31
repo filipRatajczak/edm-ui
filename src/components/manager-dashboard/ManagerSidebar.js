@@ -1,6 +1,6 @@
 import React from 'react'
 import {BsBriefcaseFill, BsCalendar3, BsGrid1X2Fill} from 'react-icons/bs'
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 import {FaClock} from "react-icons/fa";
 import {GrSchedule} from "react-icons/gr";
 import {MdAutoDelete} from "react-icons/md";

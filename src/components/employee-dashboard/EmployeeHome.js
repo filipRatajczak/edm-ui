@@ -10,7 +10,7 @@ import {
     YAxis
 } from 'recharts';
 import EmployeeSidebar from "./EmployeeSidebar";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 
 function EmployeeHome() {
 

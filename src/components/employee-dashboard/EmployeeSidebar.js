@@ -1,7 +1,7 @@
 import React from 'react'
 import {BsBriefcaseFill, BsCalendar3, BsGrid1X2Fill} from 'react-icons/bs'
 import {MdAutoDelete} from "react-icons/md";
-import Typography from "@material-ui/core/Typography";
+import Typography from "@mui/material/Typography";
 
 function EmployeeSidebar() {
 

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { bindActionCreators } from 'redux';
 
 const navigate = {
     PREVIOUS: 'PREV',

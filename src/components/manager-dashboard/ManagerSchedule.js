@@ -2,10 +2,10 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import EmployeeSidebar from "./ManagerSidebar";
 import {Calendar, momentLocalizer, Views} from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import {Modal} from "@material-ui/core";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import swal from "sweetalert";
+import {Modal} from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Swal from 'sweetalert2'
 import CustomToolbar from "../CustomToolbar";
 import moment from "moment";
 
@@ -156,12 +156,12 @@ const ManagerSchedule = () => {
         const result = await addDispositionRequest(body)
 
         if (result != null) {
-            await swal("Success", "Disposition added", "success", {
+            await Swal.fire("Success", "Disposition added", "success", {
                 buttons: false,
                 timer: 2000,
             })
         } else {
-            await swal("Error", "Something went wrong", "error")
+            await Swal.fire("Error", "Something went wrong", "error")
         }
         window.location.reload(false);
     }
